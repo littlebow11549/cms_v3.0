@@ -4119,8 +4119,10 @@ select.twk-field {
 .tb-avatar.circle, .tb-avatar.lg, .rb-big-avatar { color: var(--accent) !important; text-shadow: none !important; font-weight: 800 !important; }
 [data-theme="light"] .tb-avatar { color: var(--accent) !important; }
 
-/* rewards-banner big avatar initials — white text */
-.rb-big-avatar, [data-theme="light"] .rb-big-avatar { color: #fff !important; }
+/* all avatar initials (PL) — white text */
+.tb-avatar, .tb-avatar.circle, .tb-avatar.lg, .rb-big-avatar,
+[data-theme="light"] .tb-avatar, [data-theme="light"] .tb-avatar.circle,
+[data-theme="light"] .tb-avatar.lg, [data-theme="light"] .rb-big-avatar { color: #fff !important; }
 
 
 /* ════ light-theme white-text sweep (tables + panel headings) ════ */
