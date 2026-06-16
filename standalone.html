@@ -4129,6 +4129,9 @@ select.twk-field {
 .tb-avatar.circle, .tb-avatar.lg, .rb-big-avatar { color: var(--accent) !important; text-shadow: none !important; font-weight: 800 !important; }
 [data-theme="light"] .tb-avatar { color: var(--accent) !important; }
 
+/* rewards-banner big avatar initials — white text */
+.rb-big-avatar, [data-theme="light"] .rb-big-avatar { color: #fff !important; }
+
 
 /* ════ light-theme white-text sweep (tables + panel headings) ════ */
 .rec-table tbody td:first-child { color: var(--text); }
@@ -4578,8 +4581,7 @@ const RECENTLY_PLAYED = [
 ];
 
 window.LOBBY_DATA = { PROVIDERS, GAMES, HERO_SLIDES, PROMOS, WINNERS, TOURNAMENTS, RECENTLY_PLAYED };
-</script>
-<script type="text/babel">
+</script><script type="text/babel">
 // Components for the 100% games lobby
 
 const { useState, useEffect, useRef, useMemo, useCallback } = React;
@@ -5430,7 +5432,7 @@ function CategoryView({ title, icon, games, onOpen, density }) {
 
   const shown = expanded ? filtered : filtered.slice(0, 50);
 
-  const tabs = ['All', 'Favorites', ...vendors];
+  const tabs = ['All', 'Favorites'];
   const tabIco = (t) => {
     if (t === 'Favorites') return (
       <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 20s-7-4.6-9.3-9C1.2 8 2.6 4.5 6 4.5c2 0 3.2 1.2 4 2.4.8-1.2 2-2.4 4-2.4 3.4 0 4.8 3.5 3.3 6.5C19 15.4 12 20 12 20Z"/></svg>
@@ -5844,8 +5846,7 @@ Object.assign(window, {
   Sidebar, MobileNav, TopBar, PromoRibbon,
   Hero, RewardsBanner, Promos, Rail, CategoryView, FilteredGrid, Leaderboard, Tournaments, Sports, Promotion, Providers, Footer,
   GameModal, SignInModal, CustomerServiceModal, Icon
-});</script>
-<script type="text/babel">
+});</script><script type="text/babel">
 // Account / Deposit / Withdrawal pages
 const { useState: useStateAP, useRef: useRefAP, useEffect: useEffectAP } = React;
 
@@ -6745,8 +6746,7 @@ function CustomerServicePage({ setActiveCat }) {
 
 }
 
-Object.assign(window, { AccountOverview, DepositPage, WithdrawalPage, SupportPage, RecordTable, PersonalInfo, SecurityCenter, CustomerServicePage });</script>
-<script type="text/babel">
+Object.assign(window, { AccountOverview, DepositPage, WithdrawalPage, SupportPage, RecordTable, PersonalInfo, SecurityCenter, CustomerServicePage });</script><script type="text/babel">
 
 // tweaks-panel.jsx
 // Reusable Tweaks shell + form-control helpers.
@@ -7315,8 +7315,7 @@ Object.assign(window, {
   TweakSlider, TweakToggle, TweakRadio, TweakSelect,
   TweakText, TweakNumber, TweakColor, TweakButton,
 });
-</script>
-<script type="text/babel">
+</script><script type="text/babel">
 const { useState, useEffect } = React;
 const { GAMES, RECENTLY_PLAYED } = window.LOBBY_DATA;
 
@@ -7488,6 +7487,4 @@ function App() {
 }
 
 ReactDOM.createRoot(document.getElementById('root')).render(<App />);
-</script>
-</body>
-</html>
+</script></body></html>

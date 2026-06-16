@@ -848,7 +848,7 @@ function CategoryView({ title, icon, games, onOpen, density }) {
 
   const shown = expanded ? filtered : filtered.slice(0, 50);
 
-  const tabs = ['All', 'Favorites', ...vendors];
+  const tabs = ['All', 'Favorites'];
   const tabIco = (t) => {
     if (t === 'Favorites') return (
       <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 20s-7-4.6-9.3-9C1.2 8 2.6 4.5 6 4.5c2 0 3.2 1.2 4 2.4.8-1.2 2-2.4 4-2.4 3.4 0 4.8 3.5 3.3 6.5C19 15.4 12 20 12 20Z"/></svg>
