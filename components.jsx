@@ -439,14 +439,32 @@ function PromoRibbon() {
 function Hero() {
   const [idx, setIdx] = useState(0);
   const len = HERO_SLIDES.length;
+  const touchStartX = useRef(null);
+  const autoRef = useRef(null);
+
+  const resetAuto = () => {
+    clearInterval(autoRef.current);
+    autoRef.current = setInterval(() => setIdx((i) => (i + 1) % len), 6500);
+  };
+
   useEffect(() => {
-    const t = setInterval(() => setIdx((i) => (i + 1) % len), 6500);
-    return () => clearInterval(t);
+    resetAuto();
+    return () => clearInterval(autoRef.current);
   }, [len]);
-  const next = () => setIdx((i) => (i + 1) % len);
-  const prev = () => setIdx((i) => (i - 1 + len) % len);
+
+  const next = () => { setIdx((i) => (i + 1) % len); resetAuto(); };
+  const prev = () => { setIdx((i) => (i - 1 + len) % len); resetAuto(); };
+
+  const onTouchStart = (e) => { touchStartX.current = e.touches[0].clientX; };
+  const onTouchEnd = (e) => {
+    if (touchStartX.current === null) return;
+    const dx = e.changedTouches[0].clientX - touchStartX.current;
+    if (Math.abs(dx) > 50) dx < 0 ? next() : prev();
+    touchStartX.current = null;
+  };
+
   return (
-    <div className="hero">
+    <div className="hero" onTouchStart={onTouchStart} onTouchEnd={onTouchEnd}>
       {HERO_SLIDES.map((s, i) =>
       <div key={i} className={`hero-slide ${i === idx ? 'active' : ''}`}
       style={{
