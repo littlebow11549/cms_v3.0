@@ -40,6 +40,10 @@
         <Rail title="Slots"       icon="fire" :games="GAMES.slots" @open="openGame = $event" />
         <Rail title="Live Casino" icon="bolt" :games="GAMES.live"  @open="openGame = $event" />
         <FilteredGrid @open="openGame = $event" />
+        <Leaderboard />
+        <Tournaments />
+        <Promotion />
+        <Providers />
       </template>
 
       <!-- Hot Games tab -->
@@ -77,7 +81,13 @@
         @open="openGame = $event"
       />
 
-      <!-- Placeholder tabs (Phase 5) -->
+      <!-- Sports tab -->
+      <Sports v-else-if="catTab === 'Sports'" />
+
+      <!-- Promotion tab -->
+      <Promotion v-else-if="catTab === 'Promotion'" />
+
+      <!-- Fallback -->
       <div v-else style="color:var(--text-dim);padding:40px 0;text-align:center;font-family:var(--font-mono);font-size:13px">
         {{ catTab }} — coming soon
       </div>
@@ -120,6 +130,11 @@ import Promos         from '@/components/home/Promos.vue';
 import Rail           from '@/components/game/Rail.vue';
 import FilteredGrid   from '@/components/game/FilteredGrid.vue';
 import CategoryView   from '@/components/game/CategoryView.vue';
+import Leaderboard    from '@/components/lobby/Leaderboard.vue';
+import Tournaments    from '@/components/lobby/Tournaments.vue';
+import Sports         from '@/components/lobby/Sports.vue';
+import Promotion      from '@/components/lobby/Promotion.vue';
+import Providers      from '@/components/lobby/Providers.vue';
 import { GAMES, RECENTLY_PLAYED } from '@/data/index.js';
 
 const openGame          = ref(null);
